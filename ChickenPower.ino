@@ -32,19 +32,19 @@ void loop()
   String h = t.substring(0,2);
   long long_h = h.toInt();
   
-  if(tempF<=32){
+  if(tempF<=32){ //If it's freezing, turn on the water heater
     digitalWrite(outlet1,LOW);
     Serial.print(", Heater=On,");
   }
-  if(tempF>=33){
+  if(tempF>=33){ //If not, turn it off
     digitalWrite(outlet1,HIGH);
     Serial.print(", Heater=Off");
   }
-  if(long_h>7 && long_h<20){
+  if(long_h>7 && long_h<20){ //My coop is dark so turn on a light during the day
     digitalWrite(outlet2,LOW);
     Serial.print(", Light=On");
   }
-  else{
+  else{ //Off at night.
     digitalWrite(outlet2,HIGH);
     Serial.print(", Light=Off");
   }
